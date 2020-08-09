@@ -1,10 +1,10 @@
 #A DL paper reading list
 > This repo tracks my paper reading notes. The list is mainly from these projects
 > 
-* [floodsung / Deep-Learning-Papers-Reading-Roadmap](https://github.com/floodsung/Deep-Learning-Papers-Reading-Roadmap)
-* [Huntzhan / Papers Reading Roadmap](https://huntzhan.github.io/gtd/papers/)
-* [liuchong / awesome-roadmaps](https://github.com/liuchong/awesome-roadmaps)
-* [machinelearningmindset / deep-learning-roadmap](https://github.com/machinelearningmindset/deep-learning-roadmap#text-classification)
+> * [floodsung / Deep-Learning-Papers-Reading-Roadmap](https://github.com/floodsung/Deep-Learning-Papers-Reading-Roadmap)
+> * [Huntzhan / Papers Reading Roadmap](https://huntzhan.github.io/gtd/papers/)
+> * [liuchong / awesome-roadmaps](https://github.com/liuchong/awesome-roadmaps)
+> * [machinelearningmindset / deep-learning-roadmap](https://github.com/machinelearningmindset/deep-learning-roadmap#text-classification)
 
 
 # 1 Deep Learning History and Basics
@@ -26,6 +26,15 @@
 ## 1.3 ImageNet Evolution（Deep Learning broke out from here）
 
 **[4]** Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "**Imagenet classification with deep convolutional neural networks**." Advances in neural information processing systems. 2012. [[pdf]](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) **(AlexNet, Deep Learning Breakthrough)** :star::star::star::star::star:
+> Notes:
+> 
+> * ReLu activation
+> * Dropout to handle overfitting
+> * Overlap pooling
+> * 5 conv layers with max pooling; 3 fully connected layers; 1000-way softmax layer
+> * 60 million parameters and 650,000 neurons
+> * AlexNet, Deep Learning Breakthrough
+> * ImageNet winner
 
 **[5]** Simonyan, Karen, and Andrew Zisserman. "**Very deep convolutional networks for large-scale image recognition**." arXiv preprint arXiv:1409.1556 (2014). [[pdf]](https://arxiv.org/pdf/1409.1556.pdf) **(VGGNet,Neural Networks become very deep!)** :star::star::star:
 
@@ -176,14 +185,39 @@
 ## 3.1 NLP(Natural Language Processing)
 
 **[1]** Antoine Bordes, et al. "**Joint Learning of Words and Meaning Representations for Open-Text Semantic Parsing**." AISTATS(2012) [[pdf]](https://www.hds.utc.fr/~bordesan/dokuwiki/lib/exe/fetch.php?id=en%3Apubli&cache=cache&media=en:bordes12aistats.pdf) :star::star::star::star:
+> Notes
+> 
+> * mainly working on Meaning Representation (MR)
+> * generate representations for works and entitities
+> * defined an energy function as the key trick
 
 **[2]** Mikolov, et al. "**Distributed representations of words and phrases and their compositionality**." ANIPS(2013): 3111-3119 [[pdf]](http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf) **(word2vec)** :star::star::star:
+> Notes
+> 
+> * word2vec with the skip-gram model
+> * Hierarchical softmax
+> * negative sampling technique
+> * subsampling frequent words results in a significant speedup (2x-10x)
+> * "As the word vectors are trained to predict the surrounding words in the sentence, the vectors can be seen as representing the distribution of the context in which a word appears."
 
 **[3]** Sutskever, et al. "**“Sequence to sequence learning with neural networks**." ANIPS(2014) [[pdf]](http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf) :star::star::star:
+> Notes
+> 
+> * LSTM encoder -> sentence vector -> LSTM decoder
+> * 4 LSTM layers
+> * source sentence tokens are in reverse order
 
 **[4]** Ankit Kumar, et al. "**“Ask Me Anything: Dynamic Memory Networks for Natural Language Processing**." arXiv preprint arXiv:1506.07285(2015) [[pdf]](https://arxiv.org/abs/1506.07285) :star::star::star::star:
 
 **[5]** Yoon Kim, et al. "**Character-Aware Neural Language Models**." NIPS(2015) arXiv preprint arXiv:1508.06615(2015) [[pdf]](https://arxiv.org/abs/1508.06615) :star::star::star::star:
+> Notes:
+> 
+> * Char-CNN first to embed words, whose output goes to a RNN-LM
+> * char embedding -> conv layer -> max-over-time pooling -> word vector > LSTM -> cross entropy loss
+> * the conv layer works as a n-gram picking
+> * Char level input for training and word level for prediction
+> * model is smaller with 60% less parameters than one-hot
+
 
 **[6]** Jason Weston, et al. "**Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks**." arXiv preprint arXiv:1502.05698(2015) [[pdf]](https://arxiv.org/abs/1502.05698) **(bAbI tasks)** :star::star::star:
 
@@ -192,6 +226,20 @@
 **[8]** Alexis Conneau, et al. "**Very Deep Convolutional Networks for Natural Language Processing**." arXiv preprint arXiv:1606.01781(2016) [[pdf]](https://arxiv.org/abs/1606.01781) **(state-of-the-art in text classification)** :star::star::star:
 
 **[9]** Armand Joulin, et al. "**Bag of Tricks for Efficient Text Classification**." arXiv preprint arXiv:1607.01759(2016) [[pdf]](https://arxiv.org/abs/1607.01759) **(slightly worse than state-of-the-art, but a lot faster)** :star::star::star:
+> Notes:
+> 
+> * FastText model: fast training with state-of-art performance
+> * n-gram with ranking constrains;
+> * loss function approximation for fast compute
+> * Text classification model summary:
+> * 1. BoW - Bag of words
+> * 2. N-gram
+> * 3. TFIDF + n-gram [Zhang 2015]
+> * 4. Char-CNN [Zhang and LeCun 2015]
+> * 5. Char-CRNN [Xiao and Cho 2016]
+> * 6. VDCNN [Conneau 2016]
+> * 7. Conv-GRNN
+> * 8. LSTM-GRNN
 
 ## 3.2 Object Detection
 
